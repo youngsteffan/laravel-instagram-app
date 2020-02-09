@@ -17,8 +17,8 @@ class PostsController extends Controller
     public function index() {
 
         $users = auth()->user()->following()->pluck('profiles.user_id');
-        $posts = count($users) === 0 ? Post::with('user')->latest()->paginate(self::PAGINATE_VALUE)
-                                     : Post::whereIn('user_id', $users)->latest()->with('user')->paginate(self::PAGINATE_VALUE);
+        $posts = $users->isEmpty() ? Post::where('user_id', '!=' , auth()->user()->id)->with('user')->latest()->paginate(self::PAGINATE_VALUE)
+                                   : Post::whereIn('user_id', $users)->latest()->with('user')->paginate(self::PAGINATE_VALUE);
         return view('posts.index', compact('posts'));
     }
 
