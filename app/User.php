@@ -41,6 +41,7 @@ class User extends Authenticatable
         parent::boot();
         static::created(function($user) {
            $user->profile()->create([
+               'image' => '/profile/default.png',
                'title' => $user->username,
            ]);
 
