@@ -29,6 +29,8 @@ Route::get('/', 'PostsController@index');
 
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.index');
 Route::get('/profile/{user}/edit', 'ProfilesController@edit')->name('profile.edit');
+Route::get('/profile/{user}/followings', 'ProfilesController@followings')->name('profile.followings');
+Route::get('/profile/{user}/followers', 'ProfilesController@followers')->name('profile.followers');
 Route::patch('/profile/{user}', 'ProfilesController@update')->name('profile.update');
 
 
