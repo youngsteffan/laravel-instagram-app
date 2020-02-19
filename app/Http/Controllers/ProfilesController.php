@@ -47,7 +47,19 @@ class ProfilesController extends Controller
         auth()->user()->profile->update($data);
         return redirect("/profile/{$user->id}");
 
-
-
     }
+
+    public function followings(User $user)
+    {
+        $followings = $user->following;
+        return view('profiles.followings', compact('followings', 'user'));
+    }
+
+    public function followers(User $user)
+    {
+        $followers = $user->profile->followers;
+        return view('profiles.followers', compact('followers', 'user'));
+    }
+
+
 }
