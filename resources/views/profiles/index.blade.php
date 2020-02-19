@@ -20,7 +20,7 @@
                     <a href="/p/create">Add new post</a>
                     @endcan
                 </div>
-                
+
                 @can('update', $user->profile)
                 <div>
                     <a href="/profile/{{$user->id}}/edit">Edit profile</a>
@@ -29,9 +29,9 @@
 
 
                 <div class="d-flex">
-                    <div class="pr-3"><strong>{{ $user->posts->count() }}</strong> posts</div>
-                    <div class="pr-3"><strong>{{ $user->profile->followers->count() }}</strong> followers</div>
-                    <div class="pr-3"><strong>{{ $user->following->count() }}</strong> following</div>
+                    <div class="pr-3" ><strong>{{ $user->posts->count() }}</strong> posts</div>
+                    <div class="pr-3" ><strong>{{ $user->profile->followers->count() }}</strong> <a href="/profile/{{ $user->id }}/followers" style="color: #000; text-outline: none; text-decoration: none">followers</a></div>
+                    <div class="pr-3"><strong>{{ $user->following->count() }}</strong> <a href="/profile/{{ $user->id }}/followings" style="color: #000; text-outline: none; text-decoration: none">following</a></div>
                 </div>
 
                 <div class="pt-4 pb-1 font-weight-bold">{{$user->profile->title}}</div>
