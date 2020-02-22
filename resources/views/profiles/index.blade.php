@@ -30,7 +30,7 @@
 
                 <div class="d-flex">
                     <div class="pr-3" ><strong>{{ $user->posts->count() }}</strong> posts</div>
-                    <div class="pr-3" ><strong>{{ $user->profile->followers->count() }}</strong> <a href="/profile/{{ $user->id }}/followers" style="color: #000; text-outline: none; text-decoration: none">followers</a></div>
+                    <div class="pr-3" ><strong id="followers">{{ $user->profile->followers->count() }}</strong> <a href="/profile/{{ $user->id }}/followers" style="color: #000; text-outline: none; text-decoration: none">followers</a></div>
                     <div class="pr-3"><strong>{{ $user->following->count() }}</strong> <a href="/profile/{{ $user->id }}/followings" style="color: #000; text-outline: none; text-decoration: none">following</a></div>
                 </div>
 
@@ -45,15 +45,11 @@
         <div class="row pt-4">
 
             @foreach($user->posts as $post)
-
-
                     <div class="col-4 pb-4">
                         <a href="/p/{{ $post->id }}">
                             <img src="/storage/{{ $post->image }}" alt="" class="w-100" style="max-width: 550px;">
                         </a>
                     </div>
-
-
             @endforeach
 
         </div>
