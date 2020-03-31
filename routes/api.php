@@ -1,6 +1,8 @@
 <?php
 
+use App\User;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +17,11 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/search',function(Request $request){
+
+    $query = $request->get('query');
+    $users = User::where('username','like','%'.$query.'%')->with('profile')->get();
+    return response()->json($users);
 });
