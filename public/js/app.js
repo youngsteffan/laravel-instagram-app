@@ -1929,11 +1929,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       query: '',
-      results: []
+      results: [],
+      searchIcon: "\uF002"
     };
   },
   methods: {
@@ -1953,6 +1956,14 @@ __webpack_require__.r(__webpack_exports__);
       }
     }
   }
+});
+$(document).ready(function () {
+  $('#search').focusin(function () {
+    $(this).removeAttr('placeholder');
+  });
+  $('#search').focusout(function () {
+    $(this).attr('placeholder', "\uF002");
+  });
 });
 
 /***/ }),
@@ -37385,8 +37396,9 @@ var render = function() {
           expression: "query"
         }
       ],
-      staticClass: "form-control",
-      attrs: { type: "text", placeholder: "Search", id: "search" },
+      staticClass: "form-control fa",
+      staticStyle: { "font-family": "'Font Awesome 5 Free', Nunito" },
+      attrs: { type: "text", placeholder: _vm.searchIcon, id: "search" },
       domProps: { value: _vm.query },
       on: {
         keyup: _vm.autoComplete,
@@ -37423,7 +37435,10 @@ var render = function() {
                         staticClass: "rounded-circle",
                         staticStyle: { width: "50px" },
                         attrs: {
-                          src: "/storage/" + result.profile.image,
+                          src:
+                            result.profile.image !== null
+                              ? "/storage/" + result.profile.image
+                              : "/storage/profile/default.png",
                           alt: ""
                         }
                       })
@@ -37438,7 +37453,24 @@ var render = function() {
                         attrs: { href: "/profile/" + result.id }
                       },
                       [_vm._v(_vm._s(result.username))]
-                    )
+                    ),
+                    _vm._v(" "),
+                    result.name.length < 10
+                      ? _c(
+                          "div",
+                          {
+                            staticClass: "small text-secondary",
+                            staticStyle: { opacity: "0.7" }
+                          },
+                          [
+                            _vm._v(
+                              "\n                        " +
+                                _vm._s(result.name) +
+                                "\n                    "
+                            )
+                          ]
+                        )
+                      : _vm._e()
                   ])
                 ]
               )
@@ -49750,14 +49782,15 @@ if (token) {
 /*!**************************************************!*\
   !*** ./resources/js/components/Autocomplete.vue ***!
   \**************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Autocomplete_vue_vue_type_template_id_c191a05a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Autocomplete.vue?vue&type=template&id=c191a05a& */ "./resources/js/components/Autocomplete.vue?vue&type=template&id=c191a05a&");
 /* harmony import */ var _Autocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Autocomplete.vue?vue&type=script&lang=js& */ "./resources/js/components/Autocomplete.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Autocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Autocomplete_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -49787,7 +49820,7 @@ component.options.__file = "resources/js/components/Autocomplete.vue"
 /*!***************************************************************************!*\
   !*** ./resources/js/components/Autocomplete.vue?vue&type=script&lang=js& ***!
   \***************************************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

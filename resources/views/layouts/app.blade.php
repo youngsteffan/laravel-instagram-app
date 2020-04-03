@@ -32,7 +32,8 @@
                     <div><img src="/svg/logo.svg" alt="" style="max-height: 30px; border-right: 1px solid #333" class="pr-3"></div>
                     <div class="pl-3">Portraitgram</div>
                 </a>
-                <div class="ml-5 d-flex justify-content-center align-items-center my-auto">
+                <div class="ml-5 d-flex justify-content-center align-items-center pt-2 inner-addon right-addon">
+                    <i class="glyphicon glyphicon-search"></i>
                     <autocomplete></autocomplete>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
