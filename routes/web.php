@@ -20,6 +20,7 @@ Auth::routes();
 /*Route::get('/home', 'ProfilesController@index')->name('home');*/
 
 Route::post('/follow/{user}', 'FollowsController@store');
+Route::post('/like/{post}', 'LikesController@store');
 
 
 Route::get('/p/create', 'PostsController@create');

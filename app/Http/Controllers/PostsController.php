@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Like;
 use App\Post;
 use Intervention\Image\Facades\Image;
 
@@ -48,8 +49,8 @@ class PostsController extends Controller
     }
 
     public function show(Post $post) {
-
-        return view('posts.show', compact('post'));
+        $liked = Like::where(['post_id' => $post->id, 'user_id' => auth()->user()->id])->get()->isNotEmpty(); // Лайкнут ли пользователем пост
+        return view('posts.show', compact('post', 'liked'));
 
     }
 }

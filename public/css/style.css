@@ -3,3 +3,24 @@ a.black-link {
     text-outline: none !important;
     text-decoration: none !important;
 }
+
+.post-date {
+    text-transform: uppercase;
+    font-size:13px;
+    vertical-align: bottom;
+}
+
+.like-icon-unliked {
+    color: #C8C8C8;
+    font-size: 25px;
+    transition-duration: .2s;
+}
+
+.like-icon-unliked:hover {
+    color: red;
+}
+
+.like-icon-liked {
+    color: red;
+    font-size: 25px;
+}

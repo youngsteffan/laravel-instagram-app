@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+require ('./script.js');
 
 window.Vue = require('vue');
 
@@ -20,7 +21,8 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('follow-button', require('./components/FollowButton.vue').default);
-Vue.component('autocomplete',require('./components/Autocomplete.vue').default);
+Vue.component('autocomplete', require('./components/Autocomplete.vue').default);
+Vue.component('like-button', require('./components/LikeButton.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
