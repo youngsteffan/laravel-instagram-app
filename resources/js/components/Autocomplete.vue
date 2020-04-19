@@ -3,7 +3,7 @@
         <input type="text" :placeholder='searchIcon' v-model="query" v-on:keyup="autoComplete" class="form-control fa" id="search" style="font-family: 'Font Awesome 5 Free', Nunito">
         <div class="panel-footer" v-if="results.length">
             <ul class="list-group position-absolute" style="z-index: 1000;" id="search-results">
-                <li class="list-group-item d-flex justify-content-between align-items-center" v-for="result in results" style="min-width: 200px">
+                <li class="list-group-item d-flex justify-content-between align-items-center" v-for="result in results" style="min-width: 235px;">
                     <div>
                         <a v-bind:href="'/profile/'+ result.id" >
                             <img :src="result.profile.image !== null ? '/storage/' + result.profile.image : '/storage/profile/default.png'" alt="" style="width: 50px;" class="rounded-circle">

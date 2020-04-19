@@ -11,7 +11,8 @@
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="font-weight-lighter post-date pt-1"> {{ date('j F', strtotime($post->created_at)) }}</div>
                         <div class="d-flex align-items-center">
-                            <span class="font-weight-lighter mr-2" id="js-like-counter">{{ $post->likes->count() }} likes</span>
+                            <span class="font-weight-lighter mr-4 post-small-text" id="js-like-counter">{{ $post->likes->count() }} likes</span>
+                            <span class="font-weight-lighter post-small-text">{{ $post->comments->count() }} comments</span>
                         </div>
                     </div>
                 </div>

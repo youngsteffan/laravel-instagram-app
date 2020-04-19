@@ -2,6 +2,25 @@ html {
     min-height: 100% !important;
 }
 
+html::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+html::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgba(0,0,0,0.1);
+}
+html::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background: rgba(0,0,0,0.2);
+}
+html::-webkit-scrollbar-thumb:hover{
+    background: rgba(0,0,0,0.4);
+}
+html::-webkit-scrollbar-thumb:active{
+    background: rgba(0,0,0,.9);
+}
+
 #app {
     min-height: 100vh;
 }
@@ -18,6 +37,12 @@ a.black-link {
     vertical-align: bottom;
 }
 
+.post-small-text {
+    text-transform: uppercase;
+    font-size:14px;
+    vertical-align: bottom;
+}
+
 .like-icon-unliked {
     color: #C8C8C8;
     font-size: 25px;
@@ -31,4 +56,31 @@ a.black-link {
 .like-icon-liked {
     color: red;
     font-size: 25px;
+}
+
+
+#comments {
+    max-height: 200px;
+    overflow:hidden;
+    overflow-y:scroll;
+}
+
+#comments::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+#comments::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+#comments::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
 }

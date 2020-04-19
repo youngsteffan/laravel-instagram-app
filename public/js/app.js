@@ -2031,19 +2031,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['postId', 'liked'],
   data: function data() {
     return {
-      liked: this.liked
+      status: this.liked
     };
   },
   methods: {
+    getClass: function getClass() {
+      return {
+        'like-icon-liked': this.status,
+        'like-icon-unliked': !this.status
+      };
+    },
     likePost: function likePost() {
       var _this = this;
 
       axios.post('/like/' + this.postId).then(function (response) {
-        _this.liked = !_this.liked;
+        _this.status = !_this.status;
         $('#js-like-counter').text("".concat(response.data.likes_count, " likes"));
       })["catch"](function (errors) {
         if (errors.response.status == 401) {
@@ -37466,7 +37474,7 @@ var render = function() {
                 {
                   staticClass:
                     "list-group-item d-flex justify-content-between align-items-center",
-                  staticStyle: { "min-width": "200px" }
+                  staticStyle: { "min-width": "235px" }
                 },
                 [
                   _c("div", [
@@ -37583,15 +37591,7 @@ var render = function() {
     _c(
       "a",
       { staticStyle: { cursor: "pointer" }, on: { click: _vm.likePost } },
-      [
-        _c("i", {
-          staticClass: "fas fa-heart mt-1",
-          class: {
-            "like-icon-liked": _vm.liked,
-            "like-icon-unliked": !_vm.liked
-          }
-        })
-      ]
+      [_c("i", { staticClass: "fas fa-heart mt-1", class: _vm.getClass() })]
     )
   ])
 }
@@ -50073,11 +50073,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$("#search").focusout(function () {
-  $('#search-results').fadeOut(400);
-});
-$("#search").focus(function () {
-  $('#search-results').fadeIn(400);
+$(document).ready(function () {
+  $("#search").focusout(function () {
+    $('#search-results').fadeOut(400);
+  });
+  $("#search").focus(function () {
+    $('#search-results').fadeIn(400);
+  });
 });
 
 /***/ }),

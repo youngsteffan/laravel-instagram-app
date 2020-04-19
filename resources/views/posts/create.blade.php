@@ -1,3 +1,18 @@
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#js-select-profile-image')
+                    .attr('src', e.target.result)
+                    .show();
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 @extends('layouts.app')
 
 @section('content')
@@ -22,11 +37,15 @@
 
                 <div class="form-group row">
                     <label for="image" class="col-form-label text-md-right">Post Image</label>
-                    <input id="image" type="file" class="form-control-file" name="image">
+                    <input id="image" type="file" class="form-control-file" name="image" onchange="readURL(this);">
 
                     @error('image')
                         <strong>{{ $message }}</strong>
                     @enderror
+                </div>
+
+                <div class="form-group row">
+                    <img src="" alt="image" id="js-select-profile-image" class="w-100" style="display: none; max-width: 250px;">
                 </div>
 
                 <div class="form-group row mt-2">

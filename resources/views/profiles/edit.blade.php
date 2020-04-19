@@ -1,3 +1,19 @@
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#js-select-profile-image')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(150);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
 @extends('layouts.app')
 
 @section('content')
@@ -21,7 +37,6 @@
                     @enderror
                 </div>
 
-
                 <div class="form-group row">
                     <label for="description" class="col-form-label text-md-right">Description</label>
                     <input id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" value="{{ old('description') ?? $user->profile->description }}"  autocomplete="description" autofocus>
@@ -32,7 +47,6 @@
                 </span>
                     @enderror
                 </div>
-
 
                 <div class="form-group row">
                     <label for="url" class="col-form-label text-md-right">URL</label>
@@ -45,15 +59,17 @@
                     @enderror
                 </div>
 
-
-
                 <div class="form-group row">
                     <label for="image" class="col-form-label text-md-right">Profile Image</label>
-                    <input id="image" type="file" class="form-control-file" name="image">
+                    <input id="image" type="file" class="form-control-file" name="image" onchange="readURL(this);">
 
                     @error('image')
                         <strong>{{ $message }}</strong>
                     @enderror
+                </div>
+
+                <div class="form-group row">
+                    <img src="/storage/{{ $user->profile->image }}" alt="" id="js-select-profile-image" class="w-100" style="max-width: 150px;">
                 </div>
 
                 <div class="form-group row mt-2">

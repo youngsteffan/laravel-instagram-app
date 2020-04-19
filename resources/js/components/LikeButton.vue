@@ -1,6 +1,8 @@
 <template>
     <div>
-        <a @click="likePost" style="cursor:pointer;"><i v-bind:class="{ 'like-icon-liked' : liked, 'like-icon-unliked' : !liked }" class="fas fa-heart mt-1"></i></a>
+        <a @click="likePost" style="cursor:pointer;">
+            <i v-bind:class="getClass()" class="fas fa-heart mt-1"></i>
+        </a>
     </div>
 </template>
 
@@ -12,14 +14,21 @@
 
         data: function() {
             return {
-                liked: this.liked,
+                status: this.liked,
             }
         },
 
         methods: {
+
+            getClass() {
+                return {
+                    'like-icon-liked': this.status,
+                    'like-icon-unliked': !this.status}
+            },
+
             likePost() {
                 axios.post('/like/' + this.postId).then(response=>{
-                    this.liked = !this.liked;
+                    this.status = !this.status;
                     $('#js-like-counter').text(`${response.data.likes_count} likes`);
                 }).catch(errors => {
                     if (errors.response.status == 401)  {
