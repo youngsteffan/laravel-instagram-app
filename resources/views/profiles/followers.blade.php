@@ -5,7 +5,7 @@
     <div class="container">
         @if ($followers->isNotEmpty())
             <div class="col-5 offset-2 d-flex justify-content-center">
-                <p class="lead"> {{  $user->username }} followers:</p>
+                <p class="lead"> {{  $user->id == auth()->user()->id ? 'Your' : $user->username}}  followers:</p>
             </div>
             <div class="row d-flex justify-content-center">
                 <div class="col-6">

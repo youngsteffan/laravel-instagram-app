@@ -10,9 +10,9 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -29,7 +29,7 @@
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                     <div><img src="/svg/logo.svg" alt="" style="max-height: 30px; border-right: 1px solid #333" class="pr-3"></div>
-                    <div class="pl-3">Photowall</div>
+                    <div class="pl-3">{{ config('app.name', 'Laravel') }}</div>
                 </a>
                 <div class="ml-5 d-flex justify-content-center align-items-center pt-2 inner-addon right-addon">
                     <autocomplete></autocomplete>
@@ -86,7 +86,7 @@
     </div>
     <footer class="py-4 bg-dark text-white-50">
         <div class="container text-center">
-            <small>Copyright &copy; Photowall</small>
+            <small>Copyright &copy; {{ config('app.name', 'Laravel') }}</small>
         </div>
     </footer>
 </body>

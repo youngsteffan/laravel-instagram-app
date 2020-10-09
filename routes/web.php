@@ -23,9 +23,10 @@ Route::post('/follow/{user}', 'FollowsController@store');
 Route::post('/like/{post}', 'LikesController@store');
 
 
-Route::get('/p/create', 'PostsController@create');
+Route::get('/p/create', 'PostsController@create')->name('post.create');
 Route::post('/p', 'PostsController@store');
 Route::get('/p/{post}', 'PostsController@show');
+Route::delete('/p/{post}', 'PostsController@destroy')->name('post.destroy');
 Route::get('/', 'PostsController@index');
 
 Route::get('/profile/{user}', 'ProfilesController@index')->name('profile.index');

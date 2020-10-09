@@ -8,7 +8,7 @@
 @endif
     <img class="mr-3 rounded-circle" src="/storage/{{ $comment->commenter->profile->image }}" alt="{{ $comment->commenter->name ?? $comment->guest_name }} Avatar" style="max-width: 50px;">
     <div class="media-body">
-        <h5 class="mt-0 mb-1" style="font-size:16px;"><a href="/profile/{{ $post->user->profile->id }}" class="black-link">{{ $comment->commenter->name ?? $comment->guest_name }}</a> <small class="text-muted">- {{ $comment->created_at->diffForHumans() }}</small></h5>
+        <h5 class="mt-0 mb-1" style="font-size:16px;"><a href="/profile/{{ $comment->commenter->profile->id }}" class="black-link">{{ $comment->commenter->name ?? $comment->guest_name }}</a> <small class="text-muted">- {{ $comment->created_at->diffForHumans() }}</small></h5>
         <div style="white-space: pre-wrap;">{!! $markdown->line($comment->comment) !!}</div>
 
         <div>

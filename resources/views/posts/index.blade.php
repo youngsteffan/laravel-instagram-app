@@ -6,10 +6,10 @@
             <div class="row mt-5">
                 <div class="col-5 offset-2">
                     <a href="/p/{{ $post->id }}">
-                        <img src="/storage/{{ $post->image }}" alt="" class="w-100" style="max-width: 550px;">
+                        <img src="/storage/{{ $post->image }}" alt="" class="w-100">
                     </a>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="font-weight-lighter post-date pt-1"> {{ date('j F', strtotime($post->created_at)) }}</div>
+                    <div class="d-flex justify-content-between align-items-center col-12 p-0">
+                        <div class="font-weight-lighter post-date pt-1 mr-5"> {{ date('j F', strtotime($post->created_at)) }}</div>
                         <div class="d-flex align-items-center">
                             <span class="font-weight-lighter mr-4 post-small-text" id="js-like-counter">{{ $post->likes->count() }} likes</span>
                             <span class="font-weight-lighter post-small-text">{{ $post->comments->count() }} comments</span>
@@ -34,13 +34,17 @@
                         </p>
                     </div>
 
+                    <div>
+                        @comments(['model' => $post])
+                    </div>
+
                 </div>
             </div>
         @endforeach
-            <div class="row">
+{{--            <div class="row">
                 <div class="col-12">
                     <div class="d-flex justify-content-center mt-4"> {{ $posts->links() }} </div>
                 </div>
-            </div>
+            </div>--}}
     </div>
 @endsection

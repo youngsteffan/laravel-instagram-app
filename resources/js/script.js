@@ -7,4 +7,12 @@ $(document).ready(function () {
         $('#search-results').fadeIn(400);
     });
 
+
+    $('.js-delete-post').click(function (e) {
+        if(!confirm("Do you really want delete the post?")) {
+            e.preventDefault();
+            return false;
+        }
+        $('.delete-form').submit();
+    });
 });

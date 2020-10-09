@@ -6,7 +6,7 @@
     }
 @endphp
 
-@if($comments->count() < 1)
+@if($comments->count() < 1 && \Request::is('p/*'))
     <div class="alert alert-warning">be the first to comment</div>
 @endif
 

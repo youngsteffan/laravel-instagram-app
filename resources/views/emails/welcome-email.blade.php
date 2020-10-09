@@ -1,12 +1,13 @@
 @component('mail::message')
-# Introduction
+# Hi, {{ $user->name }}
 
-Welcome to Portraitgram
 
-@component('mail::button', ['url' => ''])
-I got it!
+Welcome to {{ config('app.name', 'Laravel') }}
+
+@component('mail::button', ['url' => 'http://laravel-instagram/profile/' . $user->profile->id])
+Go to profile
 @endcomponent
 
-Thanks,<br>
-{{ config('app.name') }}
+Thanks for using our web-service,<br>
+{{ config('app.name') }} team
 @endcomponent

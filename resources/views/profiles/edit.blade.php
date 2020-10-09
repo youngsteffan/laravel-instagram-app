@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <img src="/storage/{{ $user->profile->image }}" alt="" id="js-select-profile-image" class="w-100" style="max-width: 150px;">
+                    <img src="/storage/{{ $user->profile->image }}" alt="" id="js-select-profile-image" class="w-100 rounded-circle" style="max-width: 150px;">
                 </div>
 
                 <div class="form-group row mt-2">
